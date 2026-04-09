@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Non-operational hours and non-trackable tasks</title>
+  <link rel="icon" href="logo.png" type="image/png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: url('background_image.jpg') no-repeat center center; background-size: cover; min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 3.5rem 1rem; }
+    .wrap { width: 100%; max-width: 850px; background: #f5f5f3; padding: 2rem 1.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);}
+    .logo { display: flex; align-items: center; gap: 10px; margin-bottom: 2rem; }
+    .logo-dot { width: 28px; height: 28px; background: #0c2134; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .logo-text { font-size: 16px; font-weight: 500; color: #1a1a1a; }
+    h1 { font-size: 24px; font-weight: 500; color: #1a1a1a; margin-bottom: 4px; letter-spacing: -0.5px; }
+    h2 { font-size: 18px; font-weight: 500; color: #1a1a1a; margin-bottom: 4px; letter-spacing: -0.5px; }
+    .sub { font-size: 16px; color: #666; margin-bottom: 1.5rem; }
+	  .sub-ul { font-size: 16px; color: #666; margin-bottom: 1.5rem; margin-left: 1.2rem; }
+    label { display: block; font-size: 16px; font-weight: 500; color: #555; margin-bottom: 6px; }
+    .btn { width: 100%; height: 44px; background: #0c2134; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 500; font-family: inherit; cursor: pointer; margin-top: 0.5rem; transition: background .15s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .btn:hover:not(:disabled) { background: #2676b0; }
+    .btn:disabled { background: #9FE1CB; cursor: default; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="logo">
+      <a href="index.html">
+        <div class="logo-dot">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <defs>
+              <clipPath id="rounded-corners">
+                <rect x="0" y="0" width="512" height="512" rx="150" ry="150"/>
+              </clipPath>
+            </defs>
+            <g clip-path="url(#rounded-corners)">
+              <rect width="512" height="512" fill="#ffffff"/>
+              <path fill="#0c2134" d="M0 256v256h512V0H0zm329-147.6c16.6 3.6 33 10.6 44 18.9 6.2 4.6 16 14.3 16 15.7 0 1-50.9 39.6-53.4 40.6-.8.3-2.9-.8-4.7-2.4-10.4-9.1-22.2-13.5-36.4-13.6-11.9-.1-18.2 1.7-24.4 7-6.2 5.4-8.5 10.5-8.5 18.9 0 12.3 3.9 17.3 32.9 42.2 22.5 19.2 31.1 29.6 36.6 43.7 9 23.4 4.1 57.3-11.8 81.3-8.6 12.9-21.9 24.6-36.9 32.3-30.9 15.9-77 18.1-112.5 5.4-10.8-3.9-24.3-11.1-32.9-17.5-8.8-6.7-19.4-17.2-18.9-18.7.2-.6 12.3-10 26.9-21l26.6-19.9 6.4 5.9c22.6 20.9 63.2 24 79 6.1 6.3-7.2 8.6-18 5.6-26.5-2.4-6.8-8.9-13.8-28.6-30.8-24.4-21.1-31.4-29-38-43.3-4.8-10.2-6.3-17.9-6.2-30.7.4-48.3 37.2-86.4 91.7-94.9 9-1.5 38.6-.6 47.5 1.3"/>
+            </g>
+          </svg>
+      </div>
+      </a>
+      <span class="logo-text">Non-operational hours and non-trackable tasks</span>
+    </div>
+  	<div>
+      <p class="sub">To report on our total efficiency with greater accuracy, it is important to include the hours we spend doing work that doesn’t produce data directly on our platforms that we can report on. We also have to take into account the hours spent on unregistered absence, so that these hours don’t negatively affect our productivity numbers. In order to differentiate between these two we use two terms: <b>Non-operational hours</b> and <b>non-trackable tasks</b>.</p>
+      <h2>Non-operational hours:</h2>
+      <p class="sub">The time we spend doing anything not related to production is called <i>non-operational hours</i>. By production we mean any work that directly reduces the overall volume of enquiries or tasks the customer service team has to do, I.E. Salesforce cases, phone calls, chats, SoMe conversations, Lowell/Intrum cases, payment files, list work, etc. Non-operational hours include:</p>
+      <ul class="sub-ul">
+        <li>Meetings</li>
+        <li>Helping a colleague</li>
+        <li>Training (like Indicate Me or Learnster)</li>
+        <li>Administrative work (like updating KB-articles, quicktexts or opening hours)</li>
+        <li>Team building activities (like team breakfast)</li>
+        <li>Workout hour</li>
+        <li>Absence not registered in Quinyx (like doctor’s visits)</li>
+      </ul>
+      <h2>Non-trackable tasks:</h2>
+      <p class="sub">Some tasks unfortunately don’t produce any data we can use in our reports. To report on these tasks, we therefore check the time we spend on them and call it <i>non-trackable tasks</i>. These tasks include:</p>
+      <ul class="sub-ul">
+        <li>Case handling in Lowell/Intrum</li>
+        <li>List work</li>
+        <li>Approving refunds</li>
+        <li>SATS Online</li>
+        <li>Municipality</li>
+        <li>Payment files</li>
+      </ul>
+      <h2>Reporting</h2>
+      <p class="sub">To avoid making things unnecessarily complicated, you use the same form and process to report on both these items. Therefore, you don’t really need to know the difference between them – you just need to know what tasks to report in the form.
+        <br><br>The common theme across both types of items is that tasks that are reported elsewhere, either as direct numbers on any of our customer service platforms or as timeslots in Quinyx, should not be reported here in this form.</p>
+      <p class="sub">If you have any questions that are not answered in this text, please do not hesitate to contact your team leader and ask them to clarify.
+        <br><br>If you think the form or this text is lacking, please send your feedback to your team leader so that it can be discussed in the proper forum.</p>
+      <button class="btn" onclick="window.location.href='index.html'">
+        <span id="btn-label">Go back</span>
+      </button>
+    </div>
+  </div>
+</body>
+</html>
