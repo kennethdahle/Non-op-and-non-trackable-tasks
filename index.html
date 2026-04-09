@@ -8,26 +8,29 @@
 		<style>
 	    	*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 	    	body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: url('background_image.jpg') no-repeat center center; background-size: cover; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 0; }
-	    	.wrap { width: 100%; max-width: 550px; background: #f5f5f3; padding: 2rem 1.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);}
+	    	.wrap { width: 100%; max-width: 650px; background: #f5f5f3; padding: 2rem 1.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);}
 	    	.logo { display: flex; align-items: center; gap: 10px; margin-bottom: 2rem; }
 	    	.logo-dot { width: 28px; height: 28px; background: #0c2134; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
-	    	.logo-text { font-size: 15px; font-weight: 500; color: #1a1a1a; }
-	    	h1 { font-size: 22px; font-weight: 500; color: #1a1a1a; margin-bottom: 4px; letter-spacing: -0.5px; }
-	    	.sub { font-size: 14px; color: #666; margin-bottom: 1.5rem; }
-			.sub-ul { font-size: 14px; color: #666; margin-bottom: 1.5rem; margin-left: 1.2rem; }
+	    	.logo-text { font-size: 16px; font-weight: 500; color: #1a1a1a; }
+	    	h1 { font-size: 24px; font-weight: 500; color: #1a1a1a; margin-bottom: 4px; letter-spacing: -0.5px; }
+	    	.sub { font-size: 16px; color: #666; margin-bottom: 1.5rem; }
+			.sub-ul { font-size: 16px; color: #666; margin-bottom: 1.5rem; margin-left: 1.2rem; }
 	    	.card { background: white; border: 1px solid #e8e8e6; border-radius: 12px; padding: 1.5rem; }
 	    	.field { margin-bottom: 1.25rem; }
-	    	label { display: block; font-size: 13px; font-weight: 500; color: #555; margin-bottom: 6px; }
-	    	input, select { width: 100%; height: 40px; border: 1px solid #ddd; border-radius: 8px; padding: 0 12px; font-size: 14px; font-family: inherit; background: white; color: #1a1a1a; outline: none; transition: border-color .15s; }
+	    	label { display: block; font-size: 16px; font-weight: 500; color: #555; margin-bottom: 6px; }
+	    	input, select { width: 100%; height: 40px; border: 1px solid #ddd; border-radius: 8px; padding: 0 12px; font-size: 16px; font-family: inherit; background: white; color: #1a1a1a; outline: none; transition: border-color .15s; }
 	    	input:focus, select:focus { border-color: #1D9E75; box-shadow: 0 0 0 3px rgba(29,158,117,.1); }
 	    	input.err, select.err { border-color: #E24B4A; }
-	    	.err-msg { font-size: 12px; color: #E24B4A; margin-top: 4px; display: none; }
+			select:invalid { color: #888; }
+   			select { color: #1a1a1a; }
+    		option { color: #1a1a1a; }
+	    	.err-msg { font-size: 16px; color: #E24B4A; margin-top: 4px; display: none; }
 	    	.err-msg.show { display: block; }
 	    	.row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-	    	.btn { width: 100%; height: 44px; background: #0c2134; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; font-family: inherit; cursor: pointer; margin-top: 0.5rem; transition: background .15s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+	    	.btn { width: 100%; height: 44px; background: #0c2134; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 500; font-family: inherit; cursor: pointer; margin-top: 0.5rem; transition: background .15s; display: flex; align-items: center; justify-content: center; gap: 8px; }
 	    	.btn:hover:not(:disabled) { background: #2676b0; }
 	    	.btn:disabled { background: #9FE1CB; cursor: default; }
-	    	.status { margin-top: 1rem; padding: 12px 16px; border-radius: 8px; font-size: 13px; display: none; align-items: center; gap: 8px; line-height: 1.5; }
+	    	.status { margin-top: 1rem; padding: 12px 16px; border-radius: 8px; font-size: 16px; display: none; align-items: center; gap: 8px; line-height: 1.5; }
 	    	.status.show { display: flex; }
 	    	.status.ok { background: #EAF3DE; border: 1px solid #97C459; color: #3B6D11; }
 	    	.status.fail { background: #FCEBEB; border: 1px solid #F09595; color: #A32D2D; }
@@ -71,8 +74,8 @@
 	
 	    		<div class="field">
 	      			<label for="country">Country</label>
-	      			<select id="country">
-	        			<option value="">Select your country</option>
+	      			<select id="country" required>
+	        			<option value="" disabled selected>Select your country</option>
 	        			<option>Denmark</option>
 						<option>Finland</option>
 						<option>Norway</option>
@@ -83,8 +86,8 @@
 	
 	    		<div class="field">
 	      			<label for="task">Task</label>
-	      			<select id="task">
-	        			<option value="">Select task</option>
+	      			<select id="task" required>
+	        			<option value="" disabled selected>Select task</option>
 				        <option>Breakfast</option>
 						<option>Health related absence</option>
 				        <option>Indicate Me</option>
