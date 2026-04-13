@@ -70,7 +70,7 @@
 	    		<div class="field">
 	    			<label for="name">Name</label>
 	      			<input id="name" type="text" placeholder="Your name">
-	      			<div class="err-msg" id="name-err">Required field</div>
+	      			<div class="err-msg" id="name-err">First and last name (or last name initials) required.</div>
 	    		</div>
 	
 	    		<div class="field">
@@ -82,7 +82,7 @@
 						<option>Norway</option>
 	        			<option>Sweden</option>
 					</select>
-	      			<div class="err-msg" id="country-err">Required field</div>
+	      			<div class="err-msg" id="country-err">Required field.</div>
 	    		</div>
 	
 	    		<div class="field">
@@ -103,19 +103,19 @@
 						<option>Training</option>
 						<option>Workout hours</option>
 	     			</select>
-	      			<div class="err-msg" id="task-err">Required field</div>
+	      			<div class="err-msg" id="task-err">Required field.</div>
 	    		</div>
 	
 	    		<div class="row">
 	      			<div class="field">
 	        			<label for="timespent">Time spent (hh:mm)</label>
 	        			<input id="timespent" type="text" placeholder="00:00" maxlength="5">
-	        			<div class="err-msg" id="timespent-err">Required field, check format</div>
+	        			<div class="err-msg" id="timespent-err">Required field, check format.</div>
 	      			</div>
 	      			<div class="field">
 	        			<label for="date">Date</label>
 	        			<input id="date" type="date">
-	        			<div class="err-msg" id="date-err">Required field</div>
+	        			<div class="err-msg" id="date-err">Required field.</div>
 	      			</div>
 	    		</div>
 	
@@ -145,7 +145,7 @@
 	  		function validate() {
 	    		let ok = true;
 	    		const rules = [
-			    	{ id: 'name',    check: v => v.trim().length > 0,  err: 'name-err' },
+			    	{ id: 'name',      check: v => /^[A-Za-zÀ-ÖØ-öø-ÿ]+\.?(\s+[A-Za-zÀ-ÖØ-öø-ÿ]+\.?){1,}$/.test(v.trim()), err: 'name-err' },
 			    	{ id: 'country',    check: v => v !== '',              err: 'country-err' },
 			    	{ id: 'task', check: v => v !== '',              err: 'task-err' },
 			    	{ id: 'timespent',     check: v => /^\d{2}:\d{2}$/.test(v) && +v.split(':')[0] < 24 && +v.split(':')[1] < 60, err: 'timespent-err' },
