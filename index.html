@@ -157,8 +157,8 @@
 				    if (!r.check(el.value)) { el.classList.add('err'); em.classList.add('show'); ok = false; }
 				    else { el.classList.remove('err'); em.classList.remove('show'); }
 				    const clearErr = () => { if (r.check(el.value)) { el.classList.remove('err'); em.classList.remove('show'); } };
-				    el.addEventListener('input', clearErr, { once: true });
-				    if (el.tagName === 'SELECT') el.addEventListener('change', clearErr, { once: true });
+				    el.addEventListener('input', clearErr);
+					if (el.tagName === 'SELECT') el.addEventListener('change', clearErr);
 				});
 	    		return ok;
 	  		}
