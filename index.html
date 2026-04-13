@@ -152,14 +152,14 @@
 			    	{ id: 'date',    check: v => v !== '',              err: 'date-err' },
 	    		];
 	    		rules.forEach(r => {
-	      			const el = document.getElementById(r.id);
-	      			const em = document.getElementById(r.err);
-	      			if (!r.check(el.value)) { el.classList.add('err'); em.classList.add('show'); ok = false; }
-	      			else { el.classList.remove('err'); em.classList.remove('show'); }
-	      			el.addEventListener('input', () => {
-	        			if (r.check(el.value)) { el.classList.remove('err'); em.classList.remove('show'); }
-	      			}, { once: true });
-	    		});
+				    const el = document.getElementById(r.id);
+				    const em = document.getElementById(r.err);
+				    if (!r.check(el.value)) { el.classList.add('err'); em.classList.add('show'); ok = false; }
+				    else { el.classList.remove('err'); em.classList.remove('show'); }
+				    const clearErr = () => { if (r.check(el.value)) { el.classList.remove('err'); em.classList.remove('show'); } };
+				    el.addEventListener('input', clearErr, { once: true });
+				    if (el.tagName === 'SELECT') el.addEventListener('change', clearErr, { once: true });
+				});
 	    		return ok;
 	  		}
 	
