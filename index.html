@@ -156,9 +156,9 @@
 				    const em = document.getElementById(r.err);
 				    if (!r.check(el.value)) { el.classList.add('err'); em.classList.add('show'); ok = false; }
 				    else { el.classList.remove('err'); em.classList.remove('show'); }
-				    const clearErr = () => { if (r.check(el.value)) { el.classList.remove('err'); em.classList.remove('show'); } };
-				    el.addEventListener('input', clearErr);
-					if (el.tagName === 'SELECT') el.addEventListener('change', clearErr);
+				    const clearErr = () => { el.classList.remove('err'); em.classList.remove('show'); };
+					el.addEventListener('input', clearErr);
+					if (el.tagName === 'SELECT') el.addEventListener('mousedown', clearErr);
 				});
 	    		return ok;
 	  		}
