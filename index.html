@@ -10,7 +10,7 @@
 			body::before { content: ''; position: fixed; inset: 0; background: url('background_image.jpg') no-repeat center center; background-size: cover; z-index: -1; }
 	    	body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 3rem 1rem; overflow-y: scroll;}
 	    	.wrap { width: 100%; max-width: 615px; background: #f5f5f3; padding: 2rem 1.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);}
-	    	.logo { display: flex; align-items: center; gap: 10px; margin-bottom: 2rem; }
+	    	.logo { display: flex; align-items: center; gap: 10px; margin-bottom: 0.9rem; justify-content: space-between; }
 	    	.logo-dot { width: 28px; height: 28px; background: #0c2134; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
 	    	.logo-text { font-size: 16px; font-weight: 500; color: #1a1a1a; }
 	    	h1 { font-size: 24px; font-weight: 500; color: #1a1a1a; margin-bottom: 4px; letter-spacing: -0.5px; }
@@ -28,6 +28,7 @@
 	    	.err-msg { font-size: 16px; color: #E24B4A; background: #FCEBEB; border: 1px solid #F09595; border-radius: 6px; padding: 4px 10px; position: absolute; top: calc(100% + 4px); left: 0; white-space: nowrap; z-index: 10; display: none; }
 	    	.err-msg.show { display: block; }
 	    	.row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .row.three { grid-template-columns: 1fr 1fr 1fr; }
 	    	.btn { width: 100%; height: 44px; background: #0c2134; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 500; font-family: inherit; cursor: pointer; margin-top: 0.5rem; transition: background .15s; display: flex; align-items: center; justify-content: center; gap: 8px; }
 	    	.btn:hover:not(:disabled) { background: #2676b0; }
 	    	.btn:disabled { background: #9FE1CB; cursor: default; }
@@ -43,8 +44,9 @@
 	<body>
 		<div class="wrap">
 			<div class="logo">
-		      <a href="/Non-op-and-non-trackable-tasks/">
-		        <div class="logo-dot">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <a href="/Non-op-and-non-trackable-tasks/">
+            <div class="logo-dot">
 		          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 		            <defs>
 		              <clipPath id="rounded-corners">
@@ -56,11 +58,15 @@
 		              <path fill="#0c2134" d="M0 256v256h512V0H0zm329-147.6c16.6 3.6 33 10.6 44 18.9 6.2 4.6 16 14.3 16 15.7 0 1-50.9 39.6-53.4 40.6-.8.3-2.9-.8-4.7-2.4-10.4-9.1-22.2-13.5-36.4-13.6-11.9-.1-18.2 1.7-24.4 7-6.2 5.4-8.5 10.5-8.5 18.9 0 12.3 3.9 17.3 32.9 42.2 22.5 19.2 31.1 29.6 36.6 43.7 9 23.4 4.1 57.3-11.8 81.3-8.6 12.9-21.9 24.6-36.9 32.3-30.9 15.9-77 18.1-112.5 5.4-10.8-3.9-24.3-11.1-32.9-17.5-8.8-6.7-19.4-17.2-18.9-18.7.2-.6 12.3-10 26.9-21l26.6-19.9 6.4 5.9c22.6 20.9 63.2 24 79 6.1 6.3-7.2 8.6-18 5.6-26.5-2.4-6.8-8.9-13.8-28.6-30.8-24.4-21.1-31.4-29-38-43.3-4.8-10.2-6.3-17.9-6.2-30.7.4-48.3 37.2-86.4 91.7-94.9 9-1.5 38.6-.6 47.5 1.3"/>
 		            </g>
 		          </svg>
-		      </div>
+		        </div>
 		      </a>
 		      <span class="logo-text">Non-operational hours and non-trackable tasks</span>
+          </div>
+          <button id="admin-btn" style="height: 30px; padding: 0 14px; background: transparent; border: 1px solid #ccc; border-radius: 6px; font-size: 13px; font-family: inherit; cursor: pointer; color: #555; flex-shrink: 0;">Admin</button>
 		    </div>
-	
+        <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;">
+		    </div>
+
 			<h1>Register task</h1>
 			<p class="sub">Make sure to fill in all fields. The data will be stored in Excel.</p>
 			<ul class="sub-ul">
@@ -75,7 +81,7 @@
 	      			<input id="name" type="text" placeholder="Your name">
 	      			<div class="err-msg" id="name-err">First and last name (or last name initials) required.</div>
 	    		</div>
-	
+
 	    		<div class="field">
 	      			<label for="country">Country</label>
 	      			<select id="country" required>
@@ -87,134 +93,169 @@
 					</select>
 	      			<div class="err-msg" id="country-err">Required field.</div>
 	    		</div>
-	
+
 	    		<div class="field">
 	      			<label for="task">Task</label>
 	      			<select id="task" required>
 	        			<option value="" disabled selected>Select task</option>
-				        <option>Breakfast</option>
-						<option>Health related absence</option>
-				        <option>Indicate Me</option>
-						<option>List work</option>
-						<option>Lowell/Intrum</option>
-						<option>Meeting</option>
-						<option>Municipality</option>
-				        <option>Payment files</option>
-						<option>Refunds</option>
-						<option>SATS Online</option>
-				        <option>Testing</option>
-						<option>Training</option>
-						<option>Workout hours</option>
+                <option data-countries="all">Breakfast</option>
+                <option data-countries="Norway,Denmark,Finland">Health related absence</option>
+                <option data-countries="all">Indicate Me</option>
+                <option data-countries="all">List work</option>
+                <option data-countries="all">Lowell/Intrum</option>
+                <option data-countries="all">Meeting</option>
+                <option data-countries="all">Municipality</option>
+                <option data-countries="all">Payment files</option>
+                <option data-countries="all">Refunds</option>
+                <option data-countries="all">SATS Online</option>
+                <option data-countries="all">Testing</option>
+                <option data-countries="all">Training</option>
+                <option data-countries="all">Workout hours</option>
 	     			</select>
 	      			<div class="err-msg" id="task-err">Required field.</div>
 	    		</div>
-	
-	    		<div class="row">
-	      			<div class="field">
-	        			<label for="timespent">Time spent (hh:mm)</label>
-	        			<input id="timespent" type="text" placeholder="00:00" maxlength="5">
-	        			<div class="err-msg" id="timespent-err">Required field, check format.</div>
-	      			</div>
-	      			<div class="field">
-	        			<label for="date">Date</label>
-	        			<input id="date" type="date">
-	        			<div class="err-msg" id="date-err">Required field.</div>
-	      			</div>
-	    		</div>
-	
+
+          <div class="row" id="time-row">
+              <div class="field">
+                  <label for="timespent">Time spent (hh:mm)</label>
+                  <input id="timespent" type="text" placeholder="00:00" maxlength="5">
+                  <div class="err-msg" id="timespent-err">Required field, check format.</div>
+              </div>
+              <div class="field" id="agents-field" style="display: none;">
+                  <label for="agents">Amount of agents</label>
+                  <input id="agents" type="number" min="1" max="100" value="1">
+              </div>
+              <div class="field">
+                  <label for="date">Date</label>
+                  <input id="date" type="date">
+                  <div class="err-msg" id="date-err">Required field.</div>
+              </div>
+          </div>
+
 	    		<button class="btn" id="send-btn">
 	      			<span id="btn-label">Submit</span>
 	    		</button>
 	    		<div class="status" id="status-msg"></div>
 	  		</div>
 		</div>
-	
+
 		<script>
-			const SHEETS_URL = "https://defaultb15a587dacc94644aa51b56dee85c3.04.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/230dcf1bbcff4695835a9d25849b66e8/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=TFs6eLcgjcJ7qvBo-xHjt38aTWfX1-s6E3EANd1N5c0";
-	
-	  		function fmt(d) { return String(d).padStart(2, '0'); }
-	  		function today() {
-	    		const n = new Date();
-	    		return `${n.getFullYear()}-${fmt(n.getMonth()+1)}-${fmt(n.getDate())}`;
-	  		}
-	  		document.getElementById('date').value = today();
-	
-	  		document.getElementById('timespent').addEventListener('input', e => {
-	    		let v = e.target.value.replace(/[^0-9]/g, '');
-	    		if (v.length >= 3) v = v.slice(0,2) + ':' + v.slice(2,4);
-	    		e.target.value = v;
-	  		});
-	
-	  		function validate() {
-	    		let ok = true;
-	    		const rules = [
-			    	{ id: 'name',      check: v => /^[A-Za-zÀ-ÖØ-öø-ÿ]+\.?(\s+[A-Za-zÀ-ÖØ-öø-ÿ]+\.?){1,}$/.test(v.trim()), err: 'name-err' },
-			    	{ id: 'country',    check: v => v !== '',              err: 'country-err' },
-			    	{ id: 'task', check: v => v !== '',              err: 'task-err' },
-			    	{ id: 'timespent',     check: v => /^\d{2}:\d{2}$/.test(v) && +v.split(':')[0] < 24 && +v.split(':')[1] < 60, err: 'timespent-err' },
-			    	{ id: 'date',    check: v => v !== '',              err: 'date-err' },
-	    		];
-	    		rules.forEach(r => {
-				    const el = document.getElementById(r.id);
-				    const em = document.getElementById(r.err);
-				    if (!r.check(el.value)) { el.classList.add('err'); em.classList.add('show'); ok = false; }
-				    else { el.classList.remove('err'); em.classList.remove('show'); }
-				    const clearErr = () => { el.classList.remove('err'); em.classList.remove('show'); };
-					el.addEventListener('input', clearErr);
-					if (el.tagName === 'SELECT') el.addEventListener('mousedown', clearErr);
-				});
-	    		return ok;
-	  		}
-	
-	  		function setStatus(type, msg) {
-	    		const el = document.getElementById('status-msg');
-	    		el.className = 'status show ' + type;
-	    		if (type === 'loading') {
-	      			el.innerHTML = `<div class="spinner"></div><span>${msg}</span>`;
-	    		} 
-				else if (type === 'ok') {
-	      			el.innerHTML = `<span>✓ ${msg}</span>`;
-	    		} 
-				else {
-	      			el.innerHTML = `<span>⚠ ${msg}</span>`;
-	    		}
-	  		}
-	
-	  		document.getElementById('send-btn').addEventListener('click', async () => {
-	    		if (!validate()) return;
-	    		const btn = document.getElementById('send-btn');
-	    		const lbl = document.getElementById('btn-label');
-	    		btn.disabled = true;
-	    		lbl.textContent = 'Sending';
-	    		setStatus('loading', 'Storing in Excel…');
-	
-	    		const payload = {
-	      			name:    document.getElementById('name').value.trim(),
-	      			country:    document.getElementById('country').value,
-	      			task: document.getElementById('task').value,
-	      			timespent:     document.getElementById('timespent').value,
-	      			date:    document.getElementById('date').value,
-	    		};
-	
-	    		try {
-	      			await fetch(SHEETS_URL, {
-	        			method: 'POST',
-	        			mode: 'cors',
-	        			headers: { 'Content-Type': 'application/json' },
-	        			body: JSON.stringify(payload),
-	      			});
-	      			setStatus('ok', 'Success! The row was stored in Excel.');
-	      			document.getElementById('task').value = '';
-	      			document.getElementById('timespent').value = '';
-	      			document.getElementById('date').value = today();
-	    		} 
-				catch (e) {
-	      			setStatus('fail', 'Something went wrong. Please contact administrator.');
-	    		}
-	
-	    		btn.disabled = false;
-	    		lbl.textContent = 'Submit';
-	  		});
+        const SHEETS_URL = "https://defaultb15a587dacc94644aa51b56dee85c3.04.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/230dcf1bbcff4695835a9d25849b66e8/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=TFs6eLcgjcJ7qvBo-xHjt38aTWfX1-s6E3EANd1N5c0";
+
+        let adminMode = false;
+
+        document.getElementById('admin-btn').addEventListener('click', () => {
+            adminMode = !adminMode;
+            document.getElementById('admin-btn').textContent = adminMode ? 'Agent' : 'Admin';
+            document.getElementById('agents-field').style.display = adminMode ? 'block' : 'none';
+            document.getElementById('time-row').classList.toggle('three', adminMode);
+            if (!adminMode) document.getElementById('agents').value = 1;
+        });
+
+        function fmt(d) { return String(d).padStart(2, '0'); }
+        function today() {
+            const n = new Date();
+            return `${n.getFullYear()}-${fmt(n.getMonth()+1)}-${fmt(n.getDate())}`;
+        }
+        document.getElementById('date').value = today();
+
+        document.getElementById('timespent').addEventListener('input', e => {
+            let v = e.target.value.replace(/[^0-9]/g, '');
+            if (v.length >= 3) v = v.slice(0,2) + ':' + v.slice(2,4);
+            e.target.value = v;
+        });
+
+        document.getElementById('country').addEventListener('change', () => {
+            const selected = document.getElementById('country').value;
+            const options = document.querySelectorAll('#task option[data-countries]');
+            options.forEach(opt => {
+                const countries = opt.getAttribute('data-countries');
+                const visible = countries === 'all' || countries.split(',').map(c => c.trim()).includes(selected);
+                opt.style.display = visible ? '' : 'none';
+            });
+            document.getElementById('task').value = '';
+        });
+
+        function multiplyTime(timeStr, multiplier) {
+            const [h, m] = timeStr.split(':').map(Number);
+            const totalMinutes = (h * 60 + m) * multiplier;
+            const resultH = Math.floor(totalMinutes / 60);
+            const resultM = totalMinutes % 60;
+            return `${String(resultH).padStart(2, '0')}:${String(resultM).padStart(2, '0')}`;
+        }
+
+        function validate() {
+            let ok = true;
+            const rules = [
+                { id: 'name',      check: v => /^[A-Za-zÀ-ÖØ-öø-ÿ]+\.?(\s+[A-Za-zÀ-ÖØ-öø-ÿ]+\.?){1,}$/.test(v.trim()), err: 'name-err' },
+                { id: 'country',   check: v => v !== '',              err: 'country-err' },
+                { id: 'task',      check: v => v !== '',              err: 'task-err' },
+                { id: 'timespent', check: v => /^\d{2}:\d{2}$/.test(v) && +v.split(':')[0] < 24 && +v.split(':')[1] < 60, err: 'timespent-err' },
+                { id: 'date',      check: v => v !== '',              err: 'date-err' },
+            ];
+            rules.forEach(r => {
+                const el = document.getElementById(r.id);
+                const em = document.getElementById(r.err);
+                if (!r.check(el.value)) { el.classList.add('err'); em.classList.add('show'); ok = false; }
+                else { el.classList.remove('err'); em.classList.remove('show'); }
+                const clearErr = () => { el.classList.remove('err'); em.classList.remove('show'); };
+                el.addEventListener('input', clearErr);
+                if (el.tagName === 'SELECT') el.addEventListener('mousedown', clearErr);
+            });
+            return ok;
+        }
+
+        function setStatus(type, msg) {
+            const el = document.getElementById('status-msg');
+            el.className = 'status show ' + type;
+            if (type === 'loading') {
+                el.innerHTML = `<div class="spinner"></div><span>${msg}</span>`;
+            } else if (type === 'ok') {
+                el.innerHTML = `<span>✓ ${msg}</span>`;
+            } else {
+                el.innerHTML = `<span>⚠ ${msg}</span>`;
+            }
+        }
+
+        document.getElementById('send-btn').addEventListener('click', async () => {
+            if (!validate()) return;
+            const btn = document.getElementById('send-btn');
+            const lbl = document.getElementById('btn-label');
+            btn.disabled = true;
+            lbl.textContent = 'Sending';
+            setStatus('loading', 'Storing in Excel…');
+
+            const rawTime = document.getElementById('timespent').value;
+            const agents = adminMode ? parseInt(document.getElementById('agents').value) || 1 : 1;
+            const finalTime = agents > 1 ? multiplyTime(rawTime, agents) : rawTime;
+
+            const payload = {
+                name:      document.getElementById('name').value.trim(),
+                country:   document.getElementById('country').value,
+                task:      document.getElementById('task').value,
+                timespent: finalTime,
+                date:      document.getElementById('date').value,
+            };
+
+            try {
+                await fetch(SHEETS_URL, {
+                    method: 'POST',
+                    mode: 'cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+                setStatus('ok', 'Success! The row was stored in Excel.');
+                document.getElementById('task').value = '';
+                document.getElementById('timespent').value = '';
+                document.getElementById('date').value = today();
+                if (adminMode) document.getElementById('agents').value = 1;
+            } catch (e) {
+                setStatus('fail', 'Something went wrong. Please contact administrator.');
+            }
+
+            btn.disabled = false;
+            lbl.textContent = 'Submit';
+        });
 		</script>
 	</body>
 </html>
