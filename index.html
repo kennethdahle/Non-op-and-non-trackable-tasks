@@ -255,7 +255,11 @@
 
             btn.disabled = false;
             lbl.textContent = 'Submit';
-        });
+        	});
+			@media (max-width: 600px) {
+			    .row { grid-template-columns: 1fr; }
+			    .row.three { grid-template-columns: 1fr; }
+			}
 		</script>
 	</body>
 </html>
