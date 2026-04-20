@@ -126,7 +126,7 @@
           <div class="row" id="time-row">
               <div class="field">
                   <label for="timespent">Time spent (hh:mm)</label>
-                  <input id="timespent" type="text" placeholder="00:00" maxlength="5">
+                  <input id="timespent" type="text" placeholder="00:00" maxlength="6">
                   <div class="err-msg" id="timespent-err">Required field, check format.</div>
               </div>
               <div class="field" id="agents-field" style="display: none;">
@@ -198,7 +198,7 @@
                 { id: 'name',      check: v => /^[A-Za-zÀ-ÖØ-öø-ÿ]+\.?(\s+[A-Za-zÀ-ÖØ-öø-ÿ]+\.?){1,}$/.test(v.trim()), err: 'name-err' },
                 { id: 'country',   check: v => v !== '',              err: 'country-err' },
                 { id: 'task',      check: v => v !== '',              err: 'task-err' },
-                { id: 'timespent', check: v => /^\d{2}:\d{2}$/.test(v) && +v.split(':')[0] < 24 && +v.split(':')[1] < 60, err: 'timespent-err' },
+                { id: 'timespent', check: v => /^\d{1,4}:\d{2}$/.test(v) && +v.split(':')[1] < 60, err: 'timespent-err' },
                 { id: 'date',      check: v => v !== '',              err: 'date-err' },
             ];
             rules.forEach(r => {
