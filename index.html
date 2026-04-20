@@ -234,8 +234,9 @@
             setStatus('loading', 'Storing in Excel…');
 
             const rawTime = document.getElementById('timespent').value;
-            const agents = adminMode ? parseInt(document.getElementById('agents').value) || 1 : 1;
+            const agents = adminMode ? (parseInt(document.getElementById('agents').value, 10) || 1) : 1;
             const finalTime = agents > 1 ? multiplyTime(rawTime, agents) : rawTime;
+			console.log('agents:', agents, 'rawTime:', rawTime, 'finalTime:', finalTime);
 
             const payload = {
                 name:      document.getElementById('name').value.trim(),
