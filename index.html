@@ -221,7 +221,7 @@
                 { id: 'task',      check: v => v !== '',              err: 'task-err' },
                 { id: 'timespent', check: v => /^\d{1,4}:\d{2}$/.test(v) && +v.split(':')[1] < 60, err: 'timespent-err' },
                 { id: 'date',      check: v => v !== '',              err: 'date-err' },
-				{ id: 'starttime', check: v => { const field = document.getElementById('starttime-field'); if (field.style.display === 'none') return true; return /^\d{2}:\d{2}$/.test(v) && +v.split(':')[0] < 24 && +v.split(':')[1] < 60; }, err: 'starttime-err' },
+				{ id: 'starttime', check: v => document.getElementById('starttime-field').style.display === 'none' || (/^\d{2}:\d{2}$/.test(v) && +v.split(':')[0] < 24 && +v.split(':')[1] < 60), err: 'starttime-err' },
             ];
             rules.forEach(r => {
                 const el = document.getElementById(r.id);
