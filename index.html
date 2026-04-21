@@ -123,22 +123,28 @@
 	      			<div class="err-msg" id="task-err">Required field.</div>
 	    		</div>
 
-          <div class="row" id="time-row">
-              <div class="field">
-                  <label for="timespent">Time spent (hh:mm)</label>
-                  <input id="timespent" type="text" placeholder="00:00" maxlength="6">
-                  <div class="err-msg" id="timespent-err">Required field, check format.</div>
-              </div>
-              <div class="field" id="agents-field" style="display: none;">
-                  <label for="agents">Amount of agents</label>
-                  <input id="agents" type="number" min="1" max="100" value="1">
-              </div>
-              <div class="field">
-                  <label for="date">Date</label>
-                  <input id="date" type="date">
-                  <div class="err-msg" id="date-err">Required field.</div>
-              </div>
-          </div>
+				<div class="field" id="starttime-field" style="display: none;">
+				    <label for="starttime">Start time (hh:mm)</label>
+				    <input id="starttime" type="text" placeholder="00:00" maxlength="5">
+				    <div class="err-msg" id="starttime-err">Required field, check format.</div>
+				</div>
+
+		        <div class="row" id="time-row">
+		            <div class="field">
+		                <label for="timespent">Time spent (hh:mm)</label>
+		                <input id="timespent" type="text" placeholder="00:00" maxlength="6">
+		                <div class="err-msg" id="timespent-err">Required field, check format.</div>
+		            </div>	
+		            <div class="field" id="agents-field" style="display: none;">
+		                <label for="agents">Amount of agents</label>
+		                <input id="agents" type="number" min="1" max="100" value="1">
+		            </div>
+              		<div class="field">
+                  		<label for="date">Date</label>
+		                <input id="date" type="date">
+		                <div class="err-msg" id="date-err">Required field.</div>
+		            </div>
+          		</div>
 
 	    		<button class="btn" id="send-btn">
 	      			<span id="btn-label">Submit</span>
@@ -173,6 +179,12 @@
             e.target.value = v;
         });
 
+		document.getElementById('starttime').addEventListener('input', e => {
+		    let v = e.target.value.replace(/[^0-9]/g, '');
+		    if (v.length >= 3) v = v.slice(0,2) + ':' + v.slice(2,4);
+		    e.target.value = v;
+		});
+
         document.getElementById('country').addEventListener('change', () => {
             const selected = document.getElementById('country').value;
             const options = document.querySelectorAll('#task option[data-countries]');
@@ -183,6 +195,15 @@
             });
             document.getElementById('task').value = '';
         });
+
+		const STARTTIME_TASKS = ['Breakfast', 'Health related absence', 'Meeting', 'Training', 'Workout hours'];
+
+		document.getElementById('task').addEventListener('change', () => {
+		    const task = document.getElementById('task').value;
+		    const show = STARTTIME_TASKS.includes(task);
+		    document.getElementById('starttime-field').style.display = show ? 'block' : 'none';
+		    if (!show) document.getElementById('starttime').value = '';
+		});
 
         function multiplyTime(timeStr, multiplier) {
             const [h, m] = timeStr.split(':').map(Number);
@@ -200,6 +221,7 @@
                 { id: 'task',      check: v => v !== '',              err: 'task-err' },
                 { id: 'timespent', check: v => /^\d{1,4}:\d{2}$/.test(v) && +v.split(':')[1] < 60, err: 'timespent-err' },
                 { id: 'date',      check: v => v !== '',              err: 'date-err' },
+				{ id: 'starttime', check: v => { const field = document.getElementById('starttime-field'); if (field.style.display === 'none') return true; return /^\d{2}:\d{2}$/.test(v) && +v.split(':')[0] < 24 && +v.split(':')[1] < 60; }, err: 'starttime-err' },
             ];
             rules.forEach(r => {
                 const el = document.getElementById(r.id);
@@ -244,6 +266,7 @@
                 task:      document.getElementById('task').value,
                 timespent: finalTime,
                 date:      document.getElementById('date').value,
+				starttime: STARTTIME_TASKS.includes(document.getElementById('task').value) ? document.getElementById('starttime').value : '',
             };
 
             try {
@@ -257,6 +280,8 @@
                 document.getElementById('task').value = '';
                 document.getElementById('timespent').value = '';
                 document.getElementById('date').value = today();
+				document.getElementById('starttime').value = '';
+				document.getElementById('starttime-field').style.display = 'none';
                 if (adminMode) document.getElementById('agents').value = 1;
             } catch (e) {
                 setStatus('fail', 'Something went wrong. Please contact administrator.');
