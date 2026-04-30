@@ -38,6 +38,7 @@
 	    	.status.fail { background: #FCEBEB; border: 1px solid #F09595; color: #A32D2D; }
 	    	.status.loading { background: #f5f5f3; border: 1px solid #e0e0dc; color: #666; }
 	    	.spinner { width: 14px; height: 14px; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: spin .7s linear infinite; flex-shrink: 0; }
+			select#task.locked { pointer-events: none; opacity: 0.5; }
 	    	@keyframes spin { to { transform: rotate(360deg); } }
 			@media (max-width: 600px) {
 			    .row { grid-template-columns: 1fr; }
@@ -104,7 +105,7 @@
 
 	    		<div class="field">
 	      			<label for="task">Task</label>
-	      			<select id="task" required>
+	      			<select id="task" required class="locked">
 	        			<option value="" disabled selected>Select task</option>
                 <option data-countries="all">Abnormal payment control</option>
 				<option data-countries="all">Ad-hoc problem handling</option>
@@ -199,6 +200,7 @@
 
         document.getElementById('country').addEventListener('change', () => {
             const selected = document.getElementById('country').value;
+			document.getElementById('task').classList.remove('locked');
             const options = document.querySelectorAll('#task option[data-countries]');
             options.forEach(opt => {
                 const countries = opt.getAttribute('data-countries');
