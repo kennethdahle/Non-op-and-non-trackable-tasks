@@ -125,7 +125,7 @@
                 <option data-countries="all">Payment files</option>
 				<option data-countries="Denmark,Finland">Platform and process development</option>
 				<option data-countries="Denmark,Finland,Sweden">Positive balance</option>
-				<option data-countries="Norway">Pre-pay</option>
+				<option data-countries="Denmark,Norway">Pre-pay</option>
                 <option data-countries="Denmark,Finland,Norway">Refunds approval</option>
 				<option data-countries="Norway">SATS Online</option>
 				<option data-countries="Norway">SoMe monitoring (weekends)</option>
@@ -213,6 +213,8 @@
         });
 
 		const STARTTIME_TASKS = ['Team breakfast', 'Health related absence', 'Meeting/Meeting preparations', 'Training/Coaching', 'Workout hour'];
+		const NON_TRACKABLE_TASKS = ['Abnormal payment control','Ad-hoc problem handling','Antidoping cases','Benify - Friskvård','Close/Open cash register','Consiliation board','List work','Lowell/Intrum','Municipality','Newsletter input','Payment files','Platform and process development','Positive balance','Pre-pay','Refunds approval','SATS Online','SoMe monitoring (weekends)','Sports vouchers'];
+		const NON_OPERATIONAL_TASKS = ['Engagement survey','Health related absence','Indicate Me','Meeting/Meeting preparations','Out of office','Team breakfast','Testing','Training/Coaching','Workout hour'];
 
 		document.getElementById('task').addEventListener('change', () => {
 		    const task = document.getElementById('task').value;
@@ -283,6 +285,7 @@
                 timespent: finalTime,
                 date:      document.getElementById('date').value,
 				starttime: STARTTIME_TASKS.includes(document.getElementById('task').value) ? document.getElementById('starttime').value : '',
+				type: NON_TRACKABLE_TASKS.includes(document.getElementById('task').value) ? 'Non-trackable task' : NON_OPERATIONAL_TASKS.includes(document.getElementById('task').value) ? 'Non-operational time' : '',
             };
 
             try {
