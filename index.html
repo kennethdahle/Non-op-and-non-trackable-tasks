@@ -110,10 +110,17 @@
                 <option data-countries="all">Abnormal payment control</option>
 				<option data-countries="all">Ad-hoc problem handling</option>
 				<option data-countries="Denmark">Antidoping cases</option>
+				<option data-countries="Finland,Norway,Sweden">App and booking</option>
 				<option data-countries="Sweden">Benify - Friskvård</option>
+				<option data-countries="all">Blacklisting and warning</option>
 				<option data-countries="Denmark,Sweden">Close/Open cash register</option>
 				<option data-countries="Norway">Consiliation board</option>
+				<option data-countries="all">Corporate</option>
+				<option data-countries="Finland,Norway,Sweden">Death and bankruptcy</option>
+				<option data-countries="Finland,Norway,Sweden">Employee start and end</option>
 				<option data-countries="all">Engagement survey</option>
+				<option data-countries="Finland,Norway,Sweden">Friend membership</option>
+				<option data-countries="Finland,Norway">GDPR</option>
                 <option data-countries="Norway,Denmark">Health related absence</option>
                 <option data-countries="all">Indicate Me</option>
                 <option data-countries="all">List work</option>
@@ -125,6 +132,7 @@
                 <option data-countries="all">Payment files</option>
 				<option data-countries="Denmark,Finland">Platform and process development</option>
 				<option data-countries="Denmark,Finland,Sweden">Positive balance</option>
+				<option data-countries="all">PT and booking</option>
 				<option data-countries="Denmark,Norway">Pre-pay</option>
                 <option data-countries="Denmark,Finland,Norway">Refunds approval</option>
 				<option data-countries="Norway">SATS Online</option>
@@ -215,6 +223,7 @@
 		const STARTTIME_TASKS = ['Team breakfast', 'Health related absence', 'Meeting/Meeting preparations', 'Training/Coaching', 'Workout hour'];
 		const NON_TRACKABLE_TASKS = ['Abnormal payment control','Ad-hoc problem handling','Antidoping cases','Benify - Friskvård','Close/Open cash register','Consiliation board','List work','Lowell/Intrum','Municipality','Newsletter input','Payment files','Platform and process development','Positive balance','Pre-pay','Refunds approval','SATS Online','SoMe monitoring (weekends)','Sports vouchers'];
 		const NON_OPERATIONAL_TASKS = ['Engagement survey','Health related absence','Indicate Me','Meeting/Meeting preparations','Out of office','Team breakfast','Testing','Training/Coaching','Workout hour'];
+		const BACKOFFICE_TASKS = ['App and booking','Blacklisting and warning','Corporate','Death and bankruptcy','Employee start and end','Friend membership','GDPR','PT and booking'];
 
 		document.getElementById('task').addEventListener('change', () => {
 		    const task = document.getElementById('task').value;
@@ -285,7 +294,7 @@
                 timespent: finalTime,
                 date:      document.getElementById('date').value,
 				starttime: STARTTIME_TASKS.includes(document.getElementById('task').value) ? document.getElementById('starttime').value : '',
-				type: NON_TRACKABLE_TASKS.includes(document.getElementById('task').value) ? 'Non-trackable task' : NON_OPERATIONAL_TASKS.includes(document.getElementById('task').value) ? 'Non-operational time' : '',
+				type: NON_TRACKABLE_TASKS.includes(document.getElementById('task').value) ? 'Non-trackable task' : NON_OPERATIONAL_TASKS.includes(document.getElementById('task').value) ? 'Non-operational time' : BACKOFFICE_TASKS.includes(document.getElementById('task').value) ? 'Backoffice' : '',
             };
 
             try {
