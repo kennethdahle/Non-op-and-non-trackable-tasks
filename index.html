@@ -88,10 +88,102 @@
 			<p class="sub">See <a href="explanation.html"><b>extended description</b></a> or ask your team leader for further clarification.</p>
 	  		<div class="card">
 	    		<div class="field">
-	    			<label for="name">Name</label>
-	      			<input id="name" type="text" placeholder="Your name">
-	      			<div class="err-msg" id="name-err">First and last name (or last name initials) required.</div>
-	    		</div>
+					<label for="name">Name</label>
+					<input id="name" type="text" placeholder="Your name" list="name-list" autocomplete="off">
+					<datalist id="name-list">
+						<option value="Almida Malmsten">
+						<option value="Amanda Enström">
+						<option value="Amanda Ernberg">
+						<option value="Andy Valencia">
+						<option value="Barbro Dahlhielm">
+						<option value="Camilla Eneroth">
+						<option value="Cecilie Hauge">
+						<option value="Charlotte Carolusson">
+						<option value="Clara Henriksson">
+						<option value="Cornelia Hante Wikner">
+						<option value="Edvin Ulmanen">
+						<option value="Eira Willemark">
+						<option value="Ekaterina Rautio">
+						<option value="Elizabett Dag">
+						<option value="Emil Ring">
+						<option value="Erik Flink">
+						<option value="Espen Nielsen">
+						<option value="Felicia Paulsson">
+						<option value="Frøydis Rekstad">
+						<option value="Hanane Moumou">
+						<option value="Håvard Lindås">
+						<option value="Heidi Dahl">
+						<option value="Helene Spetzler">
+						<option value="Hubert Mulumbu">
+						<option value="Ida Dybdahl">
+						<option value="Ida Morken">
+						<option value="Ida Olsson">
+						<option value="Ida Pitkänen">
+						<option value="Ines Kohonen">
+						<option value="Ingvild Kolstad">
+						<option value="Jeanette Norløff">
+						<option value="Jennifer Joosten">
+						<option value="Jenny Flølo Kleppe">
+						<option value="Jens Emil Hallquist">
+						<option value="Jens Patrick Samuelsen">
+						<option value="Jessica Boon">
+						<option value="Jessika Mäkelä">
+						<option value="Johanna Zamble">
+						<option value="Kajsa Sundquist">
+						<option value="Karen Orry">
+						<option value="Karin Bamerni">
+						<option value="Kasper Snellingen">
+						<option value="Kathrine Julskjær">
+						<option value="Katja Lyngbach Johnsson">
+						<option value="Kenneth Dahle">
+						<option value="Laura Pham Nguyen">
+						<option value="Lena Ring">
+						<option value="Lene Osmundsen">
+						<option value="Lianne Kasström">
+						<option value="Linda Arslan">
+						<option value="Mads Harald Johansen">
+						<option value="Marc Lewis">
+						<option value="Maria Karlsson">
+						<option value="Maria Lopez Nilsson">
+						<option value="Maria Othilie Løw">
+						<option value="Maria-José Parada">
+						<option value="Marius Dybdahl">
+						<option value="Mie Erica Dybwad">
+						<option value="Milea Bupasiri">
+						<option value="Moa Wennhall">
+						<option value="Nathalie Kjellevold Jensen">
+						<option value="Nicolai Meredith">
+						<option value="Nicolas Vicencio">
+						<option value="Niina Syrjänen">
+						<option value="Olivia Munk Björkkvist">
+						<option value="Otto Lindström">
+						<option value="Payam Tatora">
+						<option value="Petra Norström">
+						<option value="Pia Odde">
+						<option value="Rebecca Olofsson">
+						<option value="Rebekka Nordheim">
+						<option value="Riikka Hakanen">
+						<option value="Robin Steenie">
+						<option value="Sander Johansen Skrolsvik">
+						<option value="Sandra Enevi">
+						<option value="Sandra Pramhäll">
+						<option value="Sara Emilie Dahle">
+						<option value="Sara Sandberg">
+						<option value="Sara Skogly">
+						<option value="Sebastian W. Hagen">
+						<option value="Selma Paulsen">
+						<option value="Sif Holm">
+						<option value="Sofia Ringbom">
+						<option value="Stine Nielsen">
+						<option value="Therese Björnfot">
+						<option value="Tyra Ivarsson">
+						<option value="Venla Kelontekemä">
+						<option value="Victoria Tveit">
+						<option value="Yvonne Flaathen">
+						<option value="Customer service team">
+					</datalist>
+					<div class="err-msg" id="name-err">Name not recognized. Select from the list.</div>
+				</div>
 
 	    		<div class="field">
 	      			<label for="country">Country</label>
@@ -109,41 +201,41 @@
 	      			<label for="task">Task</label>
 	      			<select id="task" required class="locked">
 	        			<option value="" disabled selected>Select task</option>
-                <option data-countries="all">Abnormal payment control</option>
-				<option data-countries="all">Ad-hoc problem handling</option>
-				<option data-countries="Denmark">Antidoping cases</option>
-				<option data-countries="Finland,Norway,Sweden">App and booking</option>
-				<option data-countries="Sweden">Benify - Friskvård</option>
-				<option data-countries="all">Blacklisting and warning</option>
-				<option data-countries="Denmark,Sweden">Close/Open cash register</option>
-				<option data-countries="Norway">Consiliation board</option>
-				<option data-countries="all">Corporate</option>
-				<option data-countries="Finland,Norway,Sweden">Death and bankruptcy</option>
-				<option data-countries="Finland,Norway,Sweden">Employee start and end</option>
-				<option data-countries="all">Engagement survey</option>
-				<option data-countries="Finland,Norway,Sweden">Friend membership</option>
-				<option data-countries="Finland,Norway">GDPR</option>
-                <option data-countries="Norway,Denmark">Health related absence</option>
-                <option data-countries="all">Indicate Me</option>
-                <option data-countries="all">List work</option>
-                <option data-countries="all">Lowell/Intrum</option>
-                <option data-countries="all">Meeting/Meeting preparations</option>
-                <option data-countries="Norway">Municipality</option>
-				<option data-countries="Denmark">Newsletter input</option>
-				<option data-countries="all">Out of office</option>
-                <option data-countries="all">Payment files</option>
-				<option data-countries="Denmark,Finland">Platform and process development</option>
-				<option data-countries="Denmark,Finland,Sweden">Positive balance</option>
-				<option data-countries="all">PT and booking</option>
-				<option data-countries="Denmark,Norway">Pre-pay</option>
-                <option data-countries="Denmark,Finland,Norway">Refunds approval</option>
-				<option data-countries="Norway">SATS Online</option>
-				<option data-countries="Norway">SoMe monitoring (weekends)</option>
-				<option data-countries="Finland,Sweden">Sports vouchers</option>
-				<option data-countries="all">Team breakfast</option>
-                <option data-countries="all">Testing</option>
-                <option data-countries="all">Training/Coaching</option>
-                <option data-countries="all">Workout hour</option>
+		                <option data-countries="all">Abnormal payment control</option>
+						<option data-countries="all">Ad-hoc problem handling</option>
+						<option data-countries="Denmark">Antidoping cases</option>
+						<option data-countries="Finland,Norway,Sweden">App and booking</option>
+						<option data-countries="Sweden">Benify - Friskvård</option>
+						<option data-countries="all">Blacklisting and warning</option>
+						<option data-countries="Denmark,Sweden">Close/Open cash register</option>
+						<option data-countries="Norway">Consiliation board</option>
+						<option data-countries="all">Corporate</option>
+						<option data-countries="Finland,Norway,Sweden">Death and bankruptcy</option>
+						<option data-countries="Finland,Norway,Sweden">Employee start and end</option>
+						<option data-countries="all">Engagement survey</option>
+						<option data-countries="Finland,Norway,Sweden">Friend membership</option>
+						<option data-countries="Finland,Norway">GDPR</option>
+		                <option data-countries="Norway,Denmark">Health related absence</option>
+		                <option data-countries="all">Indicate Me</option>
+		                <option data-countries="all">List work</option>
+		                <option data-countries="all">Lowell/Intrum</option>
+		                <option data-countries="all">Meeting/Meeting preparations</option>
+		                <option data-countries="Norway">Municipality</option>
+						<option data-countries="Denmark">Newsletter input</option>
+						<option data-countries="all">Out of office</option>
+		                <option data-countries="all">Payment files</option>
+						<option data-countries="Denmark,Finland">Platform and process development</option>
+						<option data-countries="Denmark,Finland,Sweden">Positive balance</option>
+						<option data-countries="all">PT and booking</option>
+						<option data-countries="Denmark,Norway">Pre-pay</option>
+		                <option data-countries="Denmark,Finland,Norway">Refunds approval</option>
+						<option data-countries="Norway">SATS Online</option>
+						<option data-countries="Norway">SoMe monitoring (weekends)</option>
+						<option data-countries="Finland,Sweden">Sports vouchers</option>
+						<option data-countries="all">Team breakfast</option>
+		                <option data-countries="all">Testing</option>
+		                <option data-countries="all">Training/Coaching</option>
+		                <option data-countries="all">Workout hour</option>
 	     			</select>
 	      			<div class="err-msg" id="task-err">Required field.</div>
 	    		</div>
@@ -181,6 +273,99 @@
 		<script>
         const SHEETS_URL = "https://defaultb15a587dacc94644aa51b56dee85c3.04.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/230dcf1bbcff4695835a9d25849b66e8/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=TFs6eLcgjcJ7qvBo-xHjt38aTWfX1-s6E3EANd1N5c0";
 
+		const VALID_NAMES = [
+			'Almida Malmsten',
+			'Amanda Enström',
+			'Amanda Ernberg',
+			'Andy Valencia',
+			'Barbro Dahlhielm',
+			'Camilla Eneroth',
+			'Cecilie Hauge',
+			'Charlotte Carolusson',
+			'Clara Henriksson',
+			'Cornelia Hante Wikner',
+			'Edvin Ulmanen',
+			'Eira Willemark',
+			'Ekaterina Rautio',
+			'Elizabett Dag',
+			'Emil Ring',
+			'Erik Flink',
+			'Espen Nielsen',
+			'Felicia Paulsson',
+			'Frøydis Rekstad',
+			'Hanane Moumou',
+			'Håvard Lindås',
+			'Heidi Dahl',
+			'Helene Spetzler',
+			'Hubert Mulumbu',
+			'Ida Dybdahl',
+			'Ida Morken',
+			'Ida Olsson',
+			'Ida Pitkänen',
+			'Ines Kohonen',
+			'Ingvild Kolstad',
+			'Jeanette Norløff',
+			'Jennifer Joosten',
+			'Jenny Flølo Kleppe',
+			'Jens Emil Hallquist',
+			'Jens Patrick Samuelsen',
+			'Jessica Boon',
+			'Jessika Mäkelä',
+			'Johanna Zamble',
+			'Kajsa Sundquist',
+			'Karen Orry',
+			'Karin Bamerni',
+			'Kasper Snellingen',
+			'Kathrine Julskjær',
+			'Katja Lyngbach Johnsson',
+			'Kenneth Dahle',
+			'Laura Pham Nguyen',
+			'Lena Ring',
+			'Lene Osmundsen',
+			'Lianne Kasström',
+			'Linda Arslan',
+			'Mads Harald Johansen',
+			'Marc Lewis',
+			'Maria Karlsson',
+			'Maria Lopez Nilsson',
+			'Maria Othilie Løw',
+			'Maria-José Parada',
+			'Marius Dybdahl',
+			'Mie Erica Dybwad',
+			'Milea Bupasiri',
+			'Moa Wennhall',
+			'Nathalie Kjellevold Jensen',
+			'Nicolai Meredith',
+			'Nicolas Vicencio',
+			'Niina Syrjänen',
+			'Olivia Munk Björkkvist',
+			'Otto Lindström',
+			'Payam Tatora',
+			'Petra Norström',
+			'Pia Odde',
+			'Rebecca Olofsson',
+			'Rebekka Nordheim',
+			'Riikka Hakanen',
+			'Robin Steenie',
+			'Sander Johansen Skrolsvik',
+			'Sandra Enevi',
+			'Sandra Pramhäll',
+			'Sara Emilie Dahle',
+			'Sara Sandberg',
+			'Sara Skogly',
+			'Sebastian W. Hagen',
+			'Selma Paulsen',
+			'Sif Holm',
+			'Sofia Ringbom',
+			'Stine Nielsen',
+			'Therese Björnfot',
+			'Tyra Ivarsson',
+			'Venla Kelontekemä',
+			'Victoria Tveit',
+			'Yvonne Flaathen',
+			'Customer service team'
+		];
+			
         let adminMode = false;
 
         document.getElementById('admin-btn').addEventListener('click', () => {
@@ -245,7 +430,7 @@
         function validate() {
             let ok = true;
             const rules = [
-                { id: 'name',      check: v => /^[A-Za-zÀ-ÖØ-öø-ÿ]+\.?(\s+[A-Za-zÀ-ÖØ-öø-ÿ]+\.?){1,}$/.test(v.trim()), err: 'name-err' },
+                { id: 'name', check: v => VALID_NAMES.map(n => n.toLowerCase()).includes(v.trim().toLowerCase()), err: 'name-err' },
                 { id: 'country',   check: v => v !== '',              err: 'country-err' },
                 { id: 'task',      check: v => v !== '',              err: 'task-err' },
                 { id: 'timespent', check: v => /^\d{1,4}:\d{2}$/.test(v) && +v.split(':')[1] < 60 && (!adminMode ? (+v.split(':')[0] * 60 + +v.split(':')[1]) <= 480 : true), err: 'timespent-err' },
